@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //基本数据类型，在操作过程中，会有自动装箱过程，生成临时对象，临时对象在使用完成
+    //之后会自动释放
+    var num = 10;
+    num.toString();
+
+
+    var num = 10;
+    var numObject = new Number(num);
+    numObject.toString();
+
+    num.p = 10;
+    var t = num.p;
+    console.log(t);
+
+    var num1 = 11.24;
+    num1.toFixed(2);
+
+    var n1 = 12345.6789;
+    console.log(n1.toFixed(2));
+    console.log(n1.toPrecision(2));
+    //toString就是将数字转化为一个字符串 进制转换
+    console.log(n1.toString(8));
+    console.log(n1.toExponential(2));
+
+    var kk1 = 20;
+    console.log(kk1__proto__);
+    console.log(Number.prototype);
+
+    var str = "abcdefg"
+    //返回特定索引位置的字符
+    str.charAt(1);
+    //返回热顶索引位置的字符发unicode码
+    str.charCodeAt(0);
+    //slice（截取起始位置，截取的结束位置）
+    str.slice(1,-1);
+    str.substr(0,3);
+    str.substring(0,3);
+    //substring(截取字符串起始位置，截取字符串的结束位置)
+    //起始值>结束值 互换位置
+    //如果有超出索引位置 0-str.length-1 自动截断
+    str.substring(-1,3);
+
+    var stt = "abc*def*gh";
+    stt.split("*");
+
+    //ES ECMAScript简写，语言标准
+    if(true){
+        var a = 1;
+    }
+    a = 2;
+    console.log(a);
+
+    if(false){
+        var a = 1;
+    }
+    a = 2;
+    console.log(a);
+
+    for(var i=0; i<3;i++){
+
+    }
+    console.log(i);
+
+    //对当前页面的所有JavaScript都是用严格模式
+    'use strict'
+    function fn1(){
+        //对函数内部代码应用严格模式
+        'use strict'
+    }
+    //如果变量不使用var声明，会自动提升为全局变量
+    //严格模式下全局变量需显式声明
+    function fn2(){
+        username="zhangsan";
+    }
+    fn2();
+    console.log(username);
+
+    function fn23(){
+        'use strict'
+        username="zhangsan";
+    }
+    fn23();
+    console.log(username);
+
+    function fn23(){
+        //非严格模式下，普通函数的内部this指向window对象
+        //严格模式下，this指向undefined
+        'use strict'
+        console.log(this);
+    }
+    fn23();
+
+    var str = "abcdef";
+    str.length = 1;
+    console.log(str.length);
+
+    var index = 1;
+    switch(index){
+        case 1:
+            console.log("星期一");
+            break;
+        case 2:
+            console.log("星期二");
+            break;    
+    }
+    var obj1={"username":"zhangsan","age":20};
+    obj1__proro__.sex="male"
+    for(var i in ojb1){
+        console.log(i,obj1[i]);
+    }
+</script>
+</html>
