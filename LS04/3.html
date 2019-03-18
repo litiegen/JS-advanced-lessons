@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var objA = {"objName":"AAA"};
+    var objB = {"objName":"BBB"};
+    objA.foo = function(){
+        console.log(this.objName);
+    }
+    objA.foo();
+    //方法名.call(对象)可以切换
+    //apply()
+    objA.foo.call(objB);
+    //构造函数的调用
+    function Person(username){
+        this.username = username;
+    }
+    Person.prototype.sayHi = function(){
+        console.log(this.username);
+    }
+    var person = new Person("zhangsan");
+    console.log(person.__proto__ === Person.prototype);
+
+    function test(){
+        var s = "";
+        //arguments获取函数传入的实参，是个类数组对象
+        for(var i = 0; i < arguments.length;i++){
+            s += arguments[i];
+        }
+        return s;
+    }
+    test("hello","world","!");
+
+    var a = 2;
+    function foo(x){
+        x = 1;
+        console.log(a,x);
+    }
+    foo(a);
+    console.log(a);
+
+    var obj = {x:0};
+    function bar(obj1){
+        obj1.x = 2;
+        console.log(obj,obj1);
+    }
+    bar(obj);
+
+    var obj = {"username":"zhangsan","age":20}
+    //定义一个函数完成对变量的复制过程，生成新的变量
+    //并返回，引用类型时，数组、对象。
+
+    //typeof无法更细致来区分引用类型
+    var str = "abc";
+    var arr1 = ['a','b','c'];
+    var date1 = new Date();
+    console.log(typeof arr1);
+    console.log(typeof date1);
+    //对象instanceof 构造函数
+    //1.看这个对象能否用该构造函数实例化得到，能得到的话结果为true
+    var arr2 = [];
+    var arr2 = new Array();
+    arr2 instanceof Array;
+
+    function Person(username){
+        this.username = username;
+    }
+    var person = new Person("zhangsan");
+    person instanceof Person;
+    person instanceof Object;
+</script>
+</html>
