@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    console.log(a);
+    if(true){
+        var a = 1;
+    }
+    console.log(a);
+
+    //foo();
+    console.log(foo);
+    //该种情况时，仅会对变量进行定义的提升。
+    var foo = function(){
+        console.log("hello world");
+    }
+
+    AA();
+    function AA(){
+        console.log("AA_1");
+    }
+
+    function AA(){
+        console.log("AA_1");
+    }
+    var AA;
+    AA();
+
+    var a = 1;//全局变量，所有位置均可访问到
+    function fn1(){
+        console.log(a);//1
+        var b = 2;
+        var c = 3;
+        function fn2(){
+            var c = 30;
+            var d = 4;
+            console.log(c);//30
+        }
+        fn2();
+        console.log(c);//3
+    }
+    fn1();
+
+    function fn1(){
+        function fn2(){
+            var d;
+        }
+        var b;
+        var c;
+        b = 2;
+        c = 3;
+    }
+
+    var username = "jack";
+    function foo1(){
+        username = "bill";
+        console.log(username);
+    }
+    function bar(){
+        var username = "mike";
+        foo1();
+        console.log(username);
+    }
+    bar();
+
+    //ES5没有块级作用域
+    var userId = 5;
+    document.onclick = function(){
+        console.log(userId);
+        userId = 10;
+    }
+    /*一大段代码*/
+    if(true){
+        var userId = 30;
+    }
+</script>
+</html>
