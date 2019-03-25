@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .container{
+            width: 400px;
+            height: 300px;
+            margin: 0 auto;
+            border: 3px solid red;
+        }
+        .tabs>span{
+            float: left;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        .contents{
+            clear: both;
+        }
+        .contents>div{
+            height: 250px;
+            line-height: 250px;
+            font-size: 50px;
+            text-align: center;
+            display: none;
+        }
+        .contents>.show{
+            display: block;
+        }
+        .active{
+            background-color: #cdcdcd;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" style="width:100px;height:200px"></div>
+
+    <div class="container">
+            <div class="tabs">
+                <span class="active">导航0</span>
+                <span>导航1</span>
+                <span>导航2</span>
+                <span>导航3</span>
+            </div>
+            <div class="contents">
+                <div class="show">导航0内容</div>
+            </div>
+        </div>
+</body>
+<script>
+    // console.log("全局上下文-start");
+    // var x = 1;
+    // function foo(){
+    //     console.log("foo上下文-start");
+    //     var y = 2;
+    //     function bar(){
+    //         console.log("bar上下文");
+    //         var z = 3;
+    //         console.log(x+y+z);
+    //         console.log("bar上下文");
+    //     }
+    //     bar();
+    //     console.log("foo上下文-end");
+    // }
+    // foo();
+    // console.log("全局上下文-end");
+
+    // console.log("小明回家");
+    // var xx = ["书桌","书包","铅笔盒"];//小明家中
+    // console.log("在家-做作业中");
+    // function goToStore(){
+    //     var yy = ["文具店老板","出售的文具"];//文具商店中
+    //     console.log("在文具店-买文具中");
+    //     console.log("在文具店-买文具中 发现没带钱");
+    //     goToBank();
+    //     console.log("在文具店-买好文具 返回家");
+    // }
+    // function goToBank(){
+    //     var zz = ["银行职员","柜员机"];
+    //     console.log("在银行-取钱 返回文具店");
+    // }
+    // console.log("在家-做作业中 发现笔没油了");
+    // goToStore();//笔没油了，去商店买笔
+    // console.log("在家-继续做作业");
+
+    // var div1 = document.getElementById("div1");
+    // var username = "zhangsan";
+    // function fo(){
+    //     div1.onclick = function(){
+    //         this.innerHTML = username;
+    //     }
+    // }
+    // fo();
+
+
+    // console.log((function max(x,y){
+    //     return x>y?x:y;
+    // }(2,3)));
+    
+    // (function min(a,b){
+    //     return a>b?b:a;
+    // })(2,3);
+
+    // function f(){
+    //     var getNumFuncs = [];
+    //     for(var i=0;i<10;i++){
+    //         (function (j){
+    //             getNumFuncs[j] = function(){
+    //                 return j;
+    //             };
+    //         })(i);
+    //     }
+    //     return getNumFuncs;
+    // }
+    // var tmp = f();
+    // tmp[3]();
+
+    // function fooo(){
+    //     var arr1 = [];
+    //     for(var i=0;i<10;i++){
+    //         arr1[i]=function(){
+    //             return i;
+    //         }
+    //     }
+    //     return arr1;
+    // }
+    // var arr2 = fooo();
+    // arr2[0]();
+
+    // function fooo0(){
+    //     var arr1 = [];
+    //     for(var i=0;i<10;i++){
+    //         arr1[i]=function(){
+    //             return i;
+    //         }();
+    //     }
+    //     return arr1;
+    // }
+    // var arr2 = fooo0();
+    // console.log(arr2);
+
+    // for(var i=0;i<10;i++){
+    //     arr1[i]=function(){
+    //         return i;//i引用外变量
+    //     }
+    // }
+    // for(var i=0;i<10;i++){
+    //     arr1[i]=(function(){
+    //         return i;//i引用外变量
+    //     })()
+    // }
+
+    // var spaList = document.getElementsByTagName("span");
+    // var show = document.getElementsByClassName("show")[0];
+    // for(var i = 0;i<spaList.length;i++){
+    //     (function(j){
+    //         spanList[j].onclick = function(){
+    //             show.innerHTML = "导航"+j+"内容";
+    //         }
+    //     })(i)
+    // }
+
+    var tabs = document.getElementsByClassName('tabs')[0].children;
+    var contents = document.getElementsByClassName('show')[0];
+    for(var i=0;i<tabs.length;i++) {
+        (function (i) { 	//IIFE start
+            tabs[i].onclick=function(){
+                for (var j = 0; j < tabs.length; j++) {
+                    tabs[j].className = '';
+                }
+                this.className = "active";
+                contents.innerHTML = "导航" + i + "内容";
+            };
+        }(i));			//IIFE end
+    }
+</script>
+</html>
