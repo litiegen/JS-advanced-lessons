@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // function fn(){
+    //     var arr1 = [];
+    //     for(var i = 0;i < 10; i++){
+    //         (function(j){
+
+    //         })(i)
+
+    //         (function(j){
+    //             arr1[j] = function(){
+    //                 return j;
+    //             }
+    //         })(0)
+    //         (function(j){
+    //             arr1[j] = function(){
+    //                 return j;
+    //             }
+    //         })(1)
+    //         (function(j){
+    //             arr1[j] = function(){
+    //                 return j;
+    //             }
+    //         })(i)
+
+    //         arr1[i] = function(){
+    //             return i;
+    //         }
+    //     }
+    //     // var i = 0;
+
+    //     // arr1[0] = function(){
+    //     //     return i;
+    //     // }
+    //     // arr1[1] = function(){
+    //     //     return i;
+    //     // }
+    //     // arr1[2] = function(){
+    //     //     return i;
+    //     // }
+
+        
+        
+    //     return arr1;
+    // }
+    // fn()[0]();
+
+
+    // (function(w,d){
+
+    // })(window,document)
+
+    // for(var i = 0;i < 3; i++){
+    //     (function(j){
+    //         setTimeout(function(){
+    //             console.log(new Data,j);
+    //         },1000*i);
+    //     })(i);
+    // }
+
+    //闭包：函数（addNum）内部定义的函数（return匿名函数）
+    //与其相关作用域中的变量（start）形成的实体
+    // function addNum(start){
+    //     return function(step){
+    //         start+=step;
+    //         return start;
+    //     }
+    // }
+    // var fn3 = addNum(10);
+    // console.log(fn3(1));
+    // console.log(fn3(1));
+    // console.log(fn3(1));
+
+    /*
+    闭包带来的影响：
+    1.闭包我们可以访问到函数内部定义的变量
+    2.闭包让关联作用域中的特定变量保持在内存中，不释放
+    */
+    function foo(){
+        var i = 0;
+        function bar(){
+            console.log(++i);
+        }
+        return bar;
+    }
+    var fn1 = foo();
+    var fn2 = foo();
+    fn1();
+    fn1();
+    fn2();
+    fn2();
+</script>
+</html>
