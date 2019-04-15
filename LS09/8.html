@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function foo(x){
+        var tmp = 10;
+        return function(y){
+            console.log(x + y, ++tmp)
+        }
+    }
+    var fee = foo(10);
+    fee(10);
+    fee(-10);
+    /*对象 instanceof 构造函数
+    1.判断对象能否使用该构造函数实例化得到
+    2.判断对象的原型链上能否找到该构函数的原型
+
+    对象.__proto__.__proto__(长度不确定)==构造函数.prototype
+    */
+    console.log(Object instanceof Function);
+    console.log(Object.__proto__==Function.prototype);
+
+    console.log(Object instanceof Object);
+    console.log(Number instanceof Function);
+
+    var o = {
+        _x:1,
+        get x(){
+            return this._x;
+        },
+        set x(val){
+            this._x = val;
+        }
+    }
+    o.x = 10;
+    console.log(o.x,o._xsss);
+</script>
+</html>
