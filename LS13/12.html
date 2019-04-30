@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //1.非严格模式下，this指向window对象
+    //2.严格模式下，this是undefined
+    //3.this是谁，取决于函数调用的主体
+    var x = 10;
+    console.log(window.x);
+    function thisTest(){
+        console.log(this);
+        console.log(this === window);
+    }
+    thisTest();
+
+    function thisTest1(){
+        'use strict';
+        console.log(this);
+        return this === undefined ? true: false;
+    }
+    thisTest1();
+
+    var point={
+        x:0,
+        y:0,
+        moveTo : function(x,y){
+            this.x = x;
+            this.y = y;
+        }
+    };
+    point.moveTo(1,1)//this绑定到当前对象，即point对象
+    console.log(point);
+
+    function Point(x,y){
+        this.x = x;
+        this.y = y;
+        this.moveTo = function(x,y){
+            this.x = x;
+            this.y = y;
+        }
+    }
+    var p = new Point(10,10);
+    //1.this指向函数调用的主体
+    p.moveTo(15,15);
+    /*
+    方法A.call(对象)
+    切换方法A的调用主体。this指向函数的调用主体方法.call
+    (要切换的调用对象)
+    */
+    var point = {
+        x:0,
+        y:0,
+        moveTo:function(x,y){
+            function moveToX(x){
+                console.log(this);
+                this.x = x;
+            }
+            function moveToY(y){
+                console.log(this);
+                this.y = y;
+            }
+            moveToX(x);
+            moveToY(y);
+        }
+    }
+    point.moveTo(10,10);
+    console.log(point);
+</script>
+</html>

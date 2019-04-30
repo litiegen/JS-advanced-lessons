@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" class="forminput" id="username" />
+</body>
+<script>
+    // function BaseClass(){
+
+    // }
+    // BaseClass.fn1 = function(){
+    //     console.log("静态方法");
+    // }
+    // BaseClass.fn2= function(){
+    //     console.log("原型方法");
+    // }
+    // var base = new BaseClass();
+    // console.log(base.__proto__ == BaseClass.prototype);
+    // base.fn2();
+
+    // function Person(username,age){
+    //     this.username = username;
+    //     this.age = age;
+    // }
+    // Person.prototype.constructor == Person;
+    // var person = new Person("zhangsan",20);
+    // person.constructor;
+
+    (function(w,d){
+        //构造函数,构造函数会有配置参数
+        function inputIdentify(inputId){
+            this._init(inputId);
+            this._effect();
+        }
+        inputIdentify.prototype._init = function(inputId){
+            var inputObject = d.getElementById(inputId);
+            this.inputObject = inputObject;
+        }
+        inputIdentify.prototype ._effect = function(){
+            this.inputObject.onblur = function(){
+                alert("失去焦点");
+            }          
+            this.inputObject.onfocus = function(){
+                alert("获得焦点");
+            }
+        }
+        w.inputIdentify = inputIdentify;
+    })(window,document)
+
+    var input1 = new inputIdentify("username");
+
+    var arr1 = ['a','b','c','d'];
+    var arr2 = arr1;
+    arr1[0] = 'e';
+    console.log(arr2);
+</script>
+</html>

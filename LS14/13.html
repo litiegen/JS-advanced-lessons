@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var superObj = {
+        x:1,
+        y:2
+    };
+    var subObj_First = Object.create(superObj);
+    var subObj_Second = Object.create(superObj);
+    subObj_First.__proto__.x = 5;
+    console.log(subObj_Second.x);
+
+    var obj = {
+        x:1,
+        y:2
+    }
+    var obj1 = Object.create(obj);
+    var obj2 = Object.create(obj);
+    obj1.__proto__.x = 3;
+    console.log(obj2.x);
+
+    function Person(name){
+        this.name = name;
+    }
+    Person.prototype.age = 20;
+    Person.prototype.showName = function(){
+        console.log(this.name);
+    }
+    function Student(id){
+        this.id = id;
+    }
+    /*
+    person name属性Mike,person.__proto__.age
+    person.__proto__.showName
+    */
+    Student.prototype = new Person("Mike");
+    var s1 = new Student(2017001);
+    var s2 = new Student(2017002);
+    console.log(s1.id,s2.id);
+    /*
+    s1自身上没有age，s1.__proto__ == Student.prototype
+    Student.prototype = new Person("Mike")
+    */
+    console.log(s1.age,s2.age);
+</script>
+</html>

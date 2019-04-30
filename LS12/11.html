@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // var obj1 = {z:1};
+    // var obj2 = Object.create(obj1);
+
+    // console.log(obj1.__proto__ == Object.prototype);
+    // console.log(obj2.__proto__);//obj1
+    // console.log(obj2.__proto__.__proto__);
+    // console.log(obj2.__proto__.__proto__.__proto__);
+
+
+    // var obj1 = {z:1,sayhi:function(){
+    //     console.log(this,z);
+    // }};
+    // var obj2 = Object.create(obj1);
+    // obj2.z;
+    // obj2.sayhi;
+
+    function Person(username,age){
+        this.username = username;
+        this.age = age;
+    }
+    Person.prototype.sayHi = function(){
+        console.log(this.username);
+    }
+    var person1 = new Person("zhangsan",30);
+    var person2 = new Person("lisi",40);
+    console.log(person1.__proto__ == Person.__proto__);
+    console.log(person1.__proto__ == Person.prototype);
+    person1.sayHi();
+    person2.sayHi();
+    //定义一个车（car）的对象，height，width，weight
+    //创建一个小轿车（smallcar）的对象，继承车相关的属性
+    //自己具有color，seatNum
+    //create方法，以及构造函数的形式
+    var car = {
+        height:150,
+        width:200,
+        weight:2000
+    };
+    var smallcar = Object.create(car);
+    smallcar.color = "red";
+    smallcar.searNum = 4;
+    console.log(smallcar.height);
+    console.log(smallcar.width);
+
+    function createSmallCar(color,searNum){
+        this.color = color;
+        this.searNum = searNum;
+    }
+
+    createSmallCar.prototype = car;
+    var smallcar = new createSmallCar("red",4);
+
+    //闭包，JavaScript存在的代码运行机制
+    //外层函数fn1、内层函数fn2
+    function fn1(){
+        var x = 0;
+        function fn2(){
+            return ++x;
+        }
+        return fn2;
+    }
+    var result = fn1();
+</script>
+</html>
