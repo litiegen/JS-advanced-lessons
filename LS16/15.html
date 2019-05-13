@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var arr1 = ['a','b','c','d'];
+    /*
+    forEach(callback,thisArg);
+    callback(element,index,arr);
+        element遍历数组每次取到的数组元素值
+        index遍历数组每次取到的数组元素的索引
+        arr操作的数组
+    thisArg可以指明回调函数内部this的指向
+    */
+    arr1.forEach(function(element,index,arr2){
+        console.log(element,index,arr2);
+        window.x = 10;
+    },window)
+
+    var arr3 = [10,20,30,40];
+    var result = arr3.every(function(value){
+        return value > 5;
+    });
+    console.log(result);
+
+    var date1 = new Date();
+    var year = date1.getFullYear();
+    var month = date1.getMonth();
+    var date2 = new Date(year,month);
+    console.log(date1);
+    console.log(date2);
+
+    //指明时间日期的字符串，字符串形式很多样化
+    var date3 = new Date("2019-05-05");
+    console.log(date3);
+    //指明一个毫秒为单位的数字类型
+    var date4 = new Date(Date.now());
+    console.log(date4);
+
+    /*
+        本地时间：当前所处时间的标准时间
+        世界标准时：GMT时间
+    */
+    var seconds = Date.parse("2019-05-04");
+    console.log(seconds);
+    var date5 = new Date(seconds);
+    console.log(date5);
+
+    var date6 = new Date();
+    var seconds2 = Date.parse(date6);
+    console.log(seconds2);
+    console.log(seconds2 > date6);
+</script>
+</html>

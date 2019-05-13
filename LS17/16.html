@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+    /正则表达式的文本部分/正则表达式的标识符
+    [xyz]指的匹配中括号中任意字符
+    标识符：
+    g是否全局的检索
+    i表示是否忽略大小写
+    */
+    // var reg1 = /[bcfo]at/gi;
+    // var reg2 =  new RegExp(/[bcf]at/,"gi");
+    // var reg3 =  new RegExp("[bcf]at","gi");
+    // var str = "fat cat bat Fat oat ojiidd lppqw";
+    // var arr = str.match(reg1);
+    // var arr1 = str.match(reg2);
+    // var arr2 = str.match(reg3);
+    // console.log(reg1);
+    // console.log(str);
+    // console.log(arr);
+    // console.log(arr1);
+    // console.log(arr2);
+
+    // var str = "abcdef adf kil ad adfff aad adcccc";
+    // var reg1 = /adf/gi;
+    // console.log(str.match(reg1));
+
+    // var reg2 = /adf*/gi;
+    // console.log(str.match(reg2));
+
+    // /*
+    // 字符类别：
+    // \d表示的是任意的阿拉伯数字[0-9]
+    // \D表示在特定位置上不是一个阿拉伯数字[^0-9]
+    // */
+    // var reg4 = /a\dc/gi;
+    // var reg4_2 = /a\Dc/gi;
+    // var str4 = "a2c a3c abc";
+    // str4.match(reg4);
+    // str4.match(reg4_2);
+
+    /*
+    [xyz]从括号中的字符集合当中任取一个字符
+    [^xyz]
+    */
+    var reg1 = /^a[0-9]/gi;
+    var str1 = "a1b2c3";
+    str1.match(reg1);
+    /*匹配字符串结束的位置*/
+    var reg2 = /[0-9]z$/gi;
+    var str2 = "abcd9z";
+    var str2_2 = "bcfdbdfdfd9";
+    console.log(str2.match(reg2));
+    console.log(str2_2.match(reg2));
+
+    var reg1 = /abc?/gi;
+    var str1 = "abc ab kkk";
+    str1.replace(reg1,"x");
+
+    var reg2 = /abc+/gi;
+    var str2 = "abc abccc abbcccc ab";
+    str2.replace(reg2,"x");
+</script>
+</html>
