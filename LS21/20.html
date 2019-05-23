@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button id="after">after</button>
+        <button id="insertafter">insertAfter</button>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    /*
+        1.向特定元素的后面插入新的节点
+        after() insertAfter()
+        2.向特定元素的前面插入新的节点
+        before insertBefore()
+        3.向特定元素标签内部最后的位置添加新的节点
+        append() appendTo()
+    */
+    $("#after").click(function(){
+        var $img2 = $("<img src='2.jpg'/>");
+        $("#img1").after($img2);
+    })
+    $("#insertafter").click(function(){
+        var $img2 = $("<img src='2.jpg'/>");
+        $img2.insertAfter($("#img1"));
+    })
+</script>
+</html>

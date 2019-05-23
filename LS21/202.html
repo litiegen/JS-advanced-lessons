@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .imgborder{
+            border: 5px solid red;
+        }
+    </style>
+</head>
+<body>
+    <img src="1.jpg" id="img1" />
+    <button id="btn">改变属性</button>
+    <button id="btn1">改变class</button>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    $("#btn").click(function(){
+        $("#img1").attr("src","2.jpg");
+        $("#img1").attr("title","一张图哦");
+        $("#img1").attr("width","100px");
+        alert($("#img1").attr("title"));
+        //移除特定属性
+        $("#img1").removeAttr("title");
+    })
+    $("#btn1").click(function(){
+        //$("#img1").addClass("imgborder");
+        $("#img1").mouseover(function(){
+            $("#img1").addClass("imgborder")
+        })
+    })
+</script>
+</html>

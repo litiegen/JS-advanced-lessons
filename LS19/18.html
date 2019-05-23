@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list"></ul>
+</body>
+<script>
+    /*
+        json字符串和js对象可以进行相互的转换
+    */
+    var jsObject = {"username":"zhangsan","age":20};
+    var ulObject = document.getElementById("list");
+    for(var i in jsObject){
+        var liNode = document.createElement("li");
+        liNode.innerHTML = i+" "+jsObject[i];
+        ulObject.appendChild(liNode);
+    }
+    /*
+        JSON.stringify(js对象)
+        可以将js对象数组、结构转化为json字符串
+    */
+    var jsObject = {
+        "username":"zhangsan",
+        "age":20,
+        "address":{"add":"石家庄","addcode":11322}
+    }
+    // var jsonStr = JSON.stringify(jsObject);
+    var jsonStr = JSON.stringify(jsObject,function(k,v){
+        if(typeof v == "number"){
+            // return undefined;
+            return v*2;
+        }
+        return v;
+    });
+    console.log(jsonStr);
+    console.log(typeof jsonStr);
+
+    var jsObject2 = JSON.parse(jsonStr);
+    console.log(jsObject2);
+    console.log(typeof jsObject2);
+
+    
+</script>
+</html>

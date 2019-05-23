@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table width="400" height="400" border="1" align="center">
+        <tr id="td1">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="even">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="even">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="odd">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="even">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="odd">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    /*
+        eq(index)选中特定索引值的元素
+        gt(index)选中索引值大于index的元素
+        lt(index)选中索引值小于index的元素
+        not(selector)从特定集合中排除一些元素
+    */
+    $("td:even").css("background","red");
+    $("td:odd").css("background","green");
+
+    $("td:eq(0)").css("background","black");
+    $("td:gt(1)").css("background","white");
+    $("td:lt(3)").css("background","yellow");
+    $("td:not(#td1)").css("background","pink");
+</script>
+</html>

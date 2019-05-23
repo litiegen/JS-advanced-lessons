@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 400px;
+            height: 400px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div>d</div>
+    <button id="slideup">slideup</button>
+    <button id="slidedown">slidedown</button>
+    <button id="fadeout">fadeout</button>
+    <button id="fadein">fadein</button>
+    <button id="animate">animate</button>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    $("#slideup").click(function(){
+        $("div").slideUp(4000);
+    })
+    $("#slidedown").click(function(){
+        $("div").slideDown(4000);
+    })
+    $("#fadein").click(function(){
+        $("div").fadeIn(4000);
+    })
+    $("#fadeout").click(function(){
+        $("div").fadeOut(4000);
+    })
+    $("#animate").click(function(){
+        $("div").animate({
+            "width":"500px",
+            "height":"500px"
+        },3000);
+    })
+</script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table width="400" height="400" border="1" align="center">
+        <tr>
+            <td class="even"></td>
+            <td class="odd"></td>
+            <td class="even"></td>
+            <td class="odd"></td>
+        </tr>
+        <tr>
+            <td class="odd"></td>
+            <td class="even"></td>
+            <td class="odd"></td>
+            <td class="even"></td>
+            </tr>
+        <tr>
+            <td class="even"></td>
+            <td class="odd"></td>
+            <td class="even"></td>
+            <td class="odd"></td>
+        </tr>
+        <tr1>
+            <td class="odd"></td>
+            <td class="even"></td>
+            <td class="odd"></td>
+            <td class="even"></td>
+        </tr>
+    </table>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    /*
+        $("")jquery包装集
+
+        选择器：id选择器、类选择器、标签选择器、层级选择
+        后代选择器、子选择器（都属于层级选择）
+    */
+    $(".even").css("background","red");
+    $(".odd").css("background","green");
+    $("#tb1 td").css("background","black");
+</script>
+</html>
