@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // let arr1 = [1,30,41,42];
+    // let elIndex = arr1.findIndex(function(element){
+    //     return element > 29;
+    // })
+    // console.log(elIndex);
+
+    // let name = "lily";
+
+    // let bar = "foo";
+    // let obj1={
+    //     [bar]:"male"
+    // }
+    // console.log(obj1);
+
+    // let obj2 = {username:"zhangsan"};
+    // let obj3 = {age:20};
+    // console.log(Object.assign(obj2,obj3));
+    // console.log(Object.keys(obj2));
+    // console.log(Object.values(obj2));
+    // console.log(Object.entries(obj2));
+
+    var obj = {
+        objName:"obj1",
+        showName:function(){
+            // var intervalId = setTimeout(function(){
+                var intervalId = setTimeout(()=>{
+                    console.log(this);
+                    console.log(this.objName);
+                    },1000);
+        }
+    }
+    obj.showName();
+</script>
+</html>

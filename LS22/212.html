@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            height: 400px;
+            width: 400px;
+            background: rgb(247, 153, 71);
+            margin:0 auto;
+        }
+        #div2{
+            height: 200px;
+            width: 200px;
+            background: rgb(120, 230, 120);
+            margin:0 auto;
+        }
+        #div3{
+            height: 100px;
+            width: 100px;
+            background: rgb(131, 101, 202);
+            margin:0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+            <div id="div3"></div>
+        </div>
+    </div>
+</body>
+<script>
+    /*
+        事件的冒泡和捕获
+    */
+    var div1 = document.getElementById("div1");
+    var div2 = document.getElementById("div2");
+    var div3 = document.getElementById("div3");
+    div1.addEventListener("click",function(){
+        console.log("e.target");
+        console.log("div1被点击");
+    },true)
+    div2.addEventListener("click",function(){
+        console.log("e.target");
+        console.log("div2被点击");
+    },false)
+    div3.addEventListener("click",function(){
+        console.log("e.target");
+        console.log("div3被点击");
+    },true)
+</script>
+</html>

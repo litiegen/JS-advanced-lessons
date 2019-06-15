@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    let [one, two, third] = [1, 2, 3];
+    console.log(third);
+    /*
+        ...理解为剩余运算符，其他元素匹配完成后剩余下的元素
+    */
+    let [head,...tail] = [1,2,3,4];
+    console.log(head,tail);
+    /*
+        当左侧结构元素个数大于右侧时
+        未匹配的变量会undefined
+        ...跟的变量未匹配元素[]
+    */
+    let [d,e,...f] = ['a'];
+    console.log(d,e,f);
+</script>
+</html>

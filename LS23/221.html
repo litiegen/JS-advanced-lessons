@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        之前var声明变量的方式，只有一个
+        全局变量i，所有的延迟之星都在共用一个i
+
+        let声明的方式，每次循环都会形成自己的一个
+        独立作用域
+    */
+    for(let i = 0;i < 10;i++){
+        setTimeout(function(){
+            console.log(new Date(),i);
+        },i*1000)
+    }
+</script>
+</html>

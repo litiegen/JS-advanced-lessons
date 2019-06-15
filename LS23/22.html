@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var i = 0;
+    console.log(i);
+    for(var i = 0;i < 10; i++){
+        console.log(i);
+    }
+    /*
+        不会阻塞主线程的执行，在满足特定条件时会反馈到主线程
+    */
+    window.onload = function(){
+        console.log("页面加载完成");
+    }
+    console.log("主线程");
+    var i = 0;
+    var intervalId = setInterval(function(){
+        console.log(i++);
+    },3000)
+</script>
+</html>

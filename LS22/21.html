@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            height: 200px;
+            width: 200px;
+            background: peachpuff;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <button id="btn">animate</button>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+    /*
+        $("").slideUp(1000);
+        $("").slideDown(1000);
+        
+        $("").fadeIn(1000);
+        $("").fadeOut(1000);
+    */
+    $("#btn").click(function(){
+        /*动画的同步执行*/
+        // $("div").animate({
+        //     "margin-left":"400px","margin-top":"100px"
+        // },1000);
+        /*动画的顺序执行*/
+        $("div").animate({
+            "margin-top":"200px"
+        },1000).animate({
+            "margin-left":"200px"
+        },1000).animate({
+            "margin-top":"0px"
+        },1000).animate({
+            "margin-left":"0px"
+        },1000)
+    })
+</script>
+</html>

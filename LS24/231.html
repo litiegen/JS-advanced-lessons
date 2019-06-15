@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let{bar,foo,other} = {foo:"foo1",bar:"bar1",other:"aa"};
+    console.log(bar,foo,other);
+
+    let num = new Number(5);
+    let{toString:s1} = num;
+    console.log(s1);
+
+    let [x,y] = ['a','b'];
+    [y,x]=[x,y];
+    console.log(x,y);
+</script>
+</html>
